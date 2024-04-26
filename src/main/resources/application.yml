@@ -1,0 +1,14 @@
+spring:
+  datasource:
+#    url: jdbc:postgresql://localhost:5432/Spring
+#    username: postgres
+#    password: root
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQL162Dialect
+     generate-unique-name: false
+     name: TacoCloud
+#  main:
+#      allow-bean-definition-overriding: true
