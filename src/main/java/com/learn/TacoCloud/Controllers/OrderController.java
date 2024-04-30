@@ -1,12 +1,10 @@
 package com.learn.TacoCloud.Controllers;
 
 import com.learn.TacoCloud.Models.TacoOrder;
-import com.learn.TacoCloud.RepositoryJdbc.JdbcOrderRepository;
-import com.learn.TacoCloud.RepositoryJdbc.OrderRepository;
+import com.learn.TacoCloud.Repository.OrderRepository;
 
 import jakarta.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +17,11 @@ import org.springframework.web.bind.support.SessionStatus;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 public class OrderController {
-   private final OrderRepository orderRepo;
-   @Autowired
+
+   private OrderRepository repository;
+   
    public OrderController(OrderRepository orderRepository) {
-       this.orderRepo = orderRepository;
+       this.repository = orderRepository;
    }
    @GetMapping("/current")
    public String orderForm(){
@@ -35,7 +34,7 @@ public class OrderController {
            return "orderForm";
        }
        log.info("Processing taco: {}", order);
-       orderRepo.save(order);
+       repository.save(order);
        sessionStatus.setComplete();
        return "redirect:/";
    }

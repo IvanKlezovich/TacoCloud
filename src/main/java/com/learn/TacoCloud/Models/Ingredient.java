@@ -1,22 +1,26 @@
 package com.learn.TacoCloud.Models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
 
-    private final String id;
+    @Id
+    private String id;
 
-    private final String name;
+    private String name;
 
-    private final Type type;
+    private Type type;
 
     public enum Type {
         CHEESE, PROTEIN, SAUCE, VEGGIES, WRAP
-    }
-
-    public Object getIngredient() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIngredient'");
     }
 }

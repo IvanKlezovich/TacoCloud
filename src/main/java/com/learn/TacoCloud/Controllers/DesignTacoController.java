@@ -1,27 +1,26 @@
 package com.learn.TacoCloud.Controllers;
 
-import com.learn.TacoCloud.Models.Ingredient.*;
-import com.learn.TacoCloud.Models.Ingredient;
-import com.learn.TacoCloud.Models.Taco;
-import com.learn.TacoCloud.Models.TacoOrder;
-import com.learn.TacoCloud.RepositoryJdbc.IngredientRepository;
-
-import jakarta.validation.Valid;
-
-import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.validation.Errors;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.annotation.PostMapping;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.learn.TacoCloud.Models.Ingredient;
+import com.learn.TacoCloud.Models.Ingredient.Type;
+import com.learn.TacoCloud.Models.Taco;
+import com.learn.TacoCloud.Models.TacoOrder;
+import com.learn.TacoCloud.Repository.IngredientRepository;
+
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -30,16 +29,27 @@ import java.util.stream.Collectors;
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
 
-    private final IngredientRepository ingredientRepository;
+    private final IngredientRepository repository;
 
-    @Autowired
     public DesignTacoController(IngredientRepository ingredientRepository) {
-        this.ingredientRepository = ingredientRepository;
+        this.repository = ingredientRepository;
+        List<Ingredient> list =
+        new ArrayList<>(List.of(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
+            new Ingredient ("COTO", "Corn Tortilla", Type.WRAP),
+            new Ingredient ("GRBF", "Ground Beef", Type.PROTEIN),
+            new Ingredient ("CARN", "Carnitas", Type.PROTEIN),
+            new Ingredient ("TMTO", "Diced Tomatoes", Type.VEGGIES),
+            new Ingredient ("LETC", "Lettuce", Type.VEGGIES),
+            new Ingredient ("CHED", "Cheddar", Type.CHEESE),
+            new Ingredient ("JACK", "Monterrey Jack", Type.CHEESE),
+            new Ingredient ("SLSA", "Salsa", Type.SAUCE),
+            new Ingredient ("SRCR", "Sour Cream", Type.SAUCE)));
+        repository.saveAll(list);
     }
 
     @ModelAttribute
     public void addIngredientsToModel(Model model){
-        List<Ingredient> ingredients = ingredientRepository.findAll();
+        Iterable<Ingredient> ingredients = repository.findAll();
         Type[] types = Ingredient.Type.values();
         for(Type type: types){
             model.addAttribute(type.toString().toLowerCase(), 
@@ -75,8 +85,9 @@ public class DesignTacoController {
     }
 
     private Iterable<Ingredient> filterByType(
-            List<Ingredient> ingredients, Type type) {
-        return ingredients
+            Iterable<Ingredient> ingredients, Type type) { 
+        List<Ingredient> forStream = new ArrayList<>((List)ingredients);
+        return forStream
                 .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());

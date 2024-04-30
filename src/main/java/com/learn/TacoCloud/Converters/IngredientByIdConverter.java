@@ -1,22 +1,22 @@
 package com.learn.TacoCloud.Converters;
 
-import com.learn.TacoCloud.RepositoryJdbc.IngredientRepository;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import com.learn.TacoCloud.Models.Ingredient;
+import com.learn.TacoCloud.Repository.IngredientRepository;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient>{
     
-    private IngredientRepository ingredientRepo;
+    private IngredientRepository repository;
 
     public IngredientByIdConverter(IngredientRepository ingredientRepository) {
-        this.ingredientRepo = ingredientRepository;
+        this.repository = ingredientRepository;
     }
 
     @Override
     public Ingredient convert(String id){
-        return ingredientRepo.findById(id).orElse(null);
+        return repository.findById(id).orElse(null);
     }
 }
