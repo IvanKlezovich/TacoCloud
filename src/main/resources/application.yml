@@ -5,7 +5,18 @@ spring:
     password: root
   jpa:
     hibernate:
-        ddl-auto: update
+        ddl-auto: create
+  security:
+#    oauth2:
+#      client:
+#        registration:
+#          facebook:
+#            clientId: <facebook client id>
+#            clientSecret: <facebook client secret>
+#            scope: email, public_profile
+    user:
+      name: ivan
+      password: passwprd
 #    driver-class-name: org.postgresql.Driver
 #    properties:
 #      hibernate:

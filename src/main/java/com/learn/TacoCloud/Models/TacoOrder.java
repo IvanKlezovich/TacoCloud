@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -49,9 +50,11 @@ public class TacoOrder implements Serializable {
     
     @OneToMany(cascade = CascadeType.ALL)
     private List<Taco> tacos = new ArrayList<>();
-
+    
+    @ManyToOne
+    private Users users;
+    
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
     }
-
 }

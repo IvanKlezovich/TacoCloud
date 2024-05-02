@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.learn.TacoCloud.Models.Ingredient;
 import com.learn.TacoCloud.Models.Ingredient.Type;
+import com.learn.TacoCloud.Repositories.IngredientRepository;
 import com.learn.TacoCloud.Models.Taco;
 import com.learn.TacoCloud.Models.TacoOrder;
-import com.learn.TacoCloud.Repository.IngredientRepository;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

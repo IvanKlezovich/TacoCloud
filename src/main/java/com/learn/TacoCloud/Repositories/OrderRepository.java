@@ -1,4 +1,4 @@
-package com.learn.TacoCloud.Repository;
+package com.learn.TacoCloud.Repositories;
 
 import org.springframework.data.repository.CrudRepository;
 

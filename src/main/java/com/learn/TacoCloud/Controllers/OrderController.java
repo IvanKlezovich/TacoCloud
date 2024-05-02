@@ -1,10 +1,12 @@
 package com.learn.TacoCloud.Controllers;
 
 import com.learn.TacoCloud.Models.TacoOrder;
-import com.learn.TacoCloud.Repository.OrderRepository;
+import com.learn.TacoCloud.Models.Users;
+import com.learn.TacoCloud.Repositories.OrderRepository;
 
 import jakarta.validation.Valid;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -29,13 +31,20 @@ public class OrderController {
     }
    @PostMapping()
    public String processOrder(@Valid TacoOrder order,
-       Errors errors, SessionStatus sessionStatus) {
-       if(errors.hasErrors()){
+       Errors errors, SessionStatus sessionStatus,
+       @AuthenticationPrincipal Users user) {
+       
+        if(errors.hasErrors()){
            return "orderForm";
        }
+       
        log.info("Processing taco: {}", order);
+       
+       order.setUsers(user);
+       
        repository.save(order);
        sessionStatus.setComplete();
+
        return "redirect:/";
    }
 }
