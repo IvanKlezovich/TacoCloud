@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+        ddl-auto: create
+  security:
+#    oauth2:
+#      client:
+#        registration:
+#          facebook:
+#            clientId: <facebook client id>
+#            clientSecret: <facebook client secret>
+#            scope: email, public_profile
+    user:
+      name: ivan
+      password: passwprd
+#    driver-class-name: org.postgresql.Driver
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQL162Dialect
+#     generate-unique-name: false
+#     name: TacoCloud
+#  main:
+#      allow-bean-definition-overriding: true
+server:
+    port:
+        8433
+    # ssl:
+    #   key-store: /home/ivan/Desktop/TacoCloud/tacocloud/src/main/resources/mykeys.jks
+    #   key-store-password: letmein
+    #   key-password: letmein
+logging:
+  file:
+    path: tacocloud/src/main/resources/
+    file: TacoCloud.log
+  level: 
+    root: WARN
+    org:
+      springframework:
+        security: DEBUG

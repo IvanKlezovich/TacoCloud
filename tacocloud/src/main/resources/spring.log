@@ -1,0 +1,16 @@
+2024-05-05T23:56:54.006+03:00  WARN 95283 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataLoader' defined in class path resource [com/learn/tacocloud/DevelopmentConfig.class]: Unsatisfied dependency expressed through method 'dataLoader' parameter 0: No qualifying bean of type 'com.learn.repository.IngredientRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-05-05T23:56:54.113+03:00 ERROR 95283 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method dataLoader in com.learn.tacocloud.DevelopmentConfig required a bean of type 'com.learn.repository.IngredientRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.learn.repository.IngredientRepository' in your configuration.
+

@@ -1,0 +1,126 @@
+2024-05-06T00:05:10.490+03:00  WARN 99972 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-05-06T00:05:10.528+03:00 ERROR 99972 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at com.learn.tacocloud.TacoCloudApplication.main(TacoCloudApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+Caused by: java.lang.IllegalStateException: Unable to create key store: Could not load store from 'tacocloud/src/main/resources/mykeys.jks'
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.createKeyStore(JksSslStoreBundle.java:94) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.<init>(JksSslStoreBundle.java:57) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.createJksKeyStoreBundle(WebServerSslBundle.java:90) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.createKeyStore(WebServerSslBundle.java:189) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.createStoreBundle(WebServerSslBundle.java:179) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.get(WebServerSslBundle.java:174) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.AbstractConfigurableWebServerFactory.getSslBundle(AbstractConfigurableWebServerFactory.java:225) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeSsl(TomcatServletWebServerFactory.java:373) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeConnector(TomcatServletWebServerFactory.java:349) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:210) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	... 11 common frames omitted
+Caused by: java.lang.IllegalStateException: Could not load store from 'tacocloud/src/main/resources/mykeys.jks'
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.loadKeyStore(JksSslStoreBundle.java:123) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.createKeyStore(JksSslStoreBundle.java:89) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	... 22 common frames omitted
+Caused by: java.io.FileNotFoundException: /home/ivan/Desktop/TacoCloud/tacocloud/tacocloud/src/main/resources/mykeys.jks (Нет такого файла или каталога)
+	at java.base/java.io.FileInputStream.open0(Native Method) ~[na:na]
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213) ~[na:na]
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152) ~[na:na]
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106) ~[na:na]
+	at java.base/sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:84) ~[na:na]
+	at java.base/sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:180) ~[na:na]
+	at java.base/java.net.URL.openStream(URL.java:1325) ~[na:na]
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.loadKeyStore(JksSslStoreBundle.java:118) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	... 23 common frames omitted
+
+2024-05-06T00:08:42.930+03:00  WARN 101732 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-05-06T00:08:42.971+03:00 ERROR 101732 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at com.learn.tacocloud.TacoCloudApplication.main(TacoCloudApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+Caused by: java.lang.IllegalStateException: Unable to create key store: Could not load store from '/src/main/resources/mykeys.jks'
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.createKeyStore(JksSslStoreBundle.java:94) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.<init>(JksSslStoreBundle.java:57) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.createJksKeyStoreBundle(WebServerSslBundle.java:90) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.createKeyStore(WebServerSslBundle.java:189) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.createStoreBundle(WebServerSslBundle.java:179) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.WebServerSslBundle.get(WebServerSslBundle.java:174) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.server.AbstractConfigurableWebServerFactory.getSslBundle(AbstractConfigurableWebServerFactory.java:225) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeSsl(TomcatServletWebServerFactory.java:373) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeConnector(TomcatServletWebServerFactory.java:349) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:210) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	... 11 common frames omitted
+Caused by: java.lang.IllegalStateException: Could not load store from '/src/main/resources/mykeys.jks'
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.loadKeyStore(JksSslStoreBundle.java:123) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.createKeyStore(JksSslStoreBundle.java:89) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	... 22 common frames omitted
+Caused by: java.io.FileNotFoundException: /src/main/resources/mykeys.jks (Нет такого файла или каталога)
+	at java.base/java.io.FileInputStream.open0(Native Method) ~[na:na]
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213) ~[na:na]
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152) ~[na:na]
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106) ~[na:na]
+	at java.base/sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:84) ~[na:na]
+	at java.base/sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:180) ~[na:na]
+	at java.base/java.net.URL.openStream(URL.java:1325) ~[na:na]
+	at org.springframework.boot.ssl.jks.JksSslStoreBundle.loadKeyStore(JksSslStoreBundle.java:118) ~[spring-boot-3.2.5-SNAPSHOT.jar:3.2.5-SNAPSHOT]
+	... 23 common frames omitted
+
+2024-05-06T00:09:42.962+03:00  WARN 102293 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataLoader' defined in class path resource [com/learn/tacocloud/DevelopmentConfig.class]: Unsatisfied dependency expressed through method 'dataLoader' parameter 0: No qualifying bean of type 'com.learn.repository.IngredientRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-05-06T00:09:43.029+03:00 ERROR 102293 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method dataLoader in com.learn.tacocloud.DevelopmentConfig required a bean of type 'com.learn.repository.IngredientRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.learn.repository.IngredientRepository' in your configuration.
+
+2024-05-06T00:10:12.818+03:00  WARN 102647 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataLoader' defined in class path resource [com/learn/tacocloud/DevelopmentConfig.class]: Unsatisfied dependency expressed through method 'dataLoader' parameter 0: No qualifying bean of type 'com.learn.repository.IngredientRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-05-06T00:10:12.901+03:00 ERROR 102647 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method dataLoader in com.learn.tacocloud.DevelopmentConfig required a bean of type 'com.learn.repository.IngredientRepository' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.learn.repository.IngredientRepository' in your configuration.
+
+2024-05-06T00:10:55.137+03:00  WARN 103144 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-06T00:10:56.428+03:00  INFO 103144 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4260886, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32bae4fe, org.springframework.security.web.context.SecurityContextHolderFilter@74f762a4, org.springframework.security.web.header.HeaderWriterFilter@199d7403, org.springframework.web.filter.CorsFilter@5bc5d362, org.springframework.security.web.csrf.CsrfFilter@616a5256, org.springframework.security.web.authentication.logout.LogoutFilter@7df361eb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a114dbd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@60d2202, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3bbd47c0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7220b26d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d477e69, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8c7a438, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f6b1a09, org.springframework.security.web.access.ExceptionTranslationFilter@2f92dfd1, org.springframework.security.web.access.intercept.AuthorizationFilter@7da6ca2f]
+2024-05-06T00:13:20.604+03:00  WARN 104557 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-06T00:13:21.820+03:00  INFO 104557 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47ab5dfc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@518f67eb, org.springframework.security.web.context.SecurityContextHolderFilter@224f8307, org.springframework.security.web.header.HeaderWriterFilter@7d1843e4, org.springframework.web.filter.CorsFilter@529ad7f9, org.springframework.security.web.csrf.CsrfFilter@7a88a652, org.springframework.security.web.authentication.logout.LogoutFilter@7104bfe2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2e9f67, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@746b0c00, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3c7eec, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5e55b03c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a962639, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16ae6033, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d6587aa, org.springframework.security.web.access.ExceptionTranslationFilter@5fa892d, org.springframework.security.web.access.intercept.AuthorizationFilter@86afb73]
