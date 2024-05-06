@@ -1,4 +1,4 @@
-package com.learn.TacoCloud.Models;
+package com.learn.tacocloud.models;
 
 import java.io.Serial;
 import java.io.Serializable;

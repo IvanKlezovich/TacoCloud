@@ -1,4 +1,7 @@
-package com.learn.TacoCloud.Models;
+package com.learn.tacocloud.models;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,7 +14,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public class Ingredient {
+public class Ingredient implements Serializable{
+
+    @Serial
+    private static final long serialVersionUID = 1;
 
     @Id
     private String id;

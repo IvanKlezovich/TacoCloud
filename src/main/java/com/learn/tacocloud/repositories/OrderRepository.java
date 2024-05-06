@@ -1,8 +1,9 @@
-package com.learn.TacoCloud.Repositories;
+package com.learn.tacocloud.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.learn.TacoCloud.Models.TacoOrder;
+import com.learn.tacocloud.models.TacoOrder;
+
 import java.util.List;
 
 

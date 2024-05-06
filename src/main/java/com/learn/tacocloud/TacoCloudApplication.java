@@ -1,4 +1,4 @@
-package com.learn.TacoCloud;
+package com.learn.tacocloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

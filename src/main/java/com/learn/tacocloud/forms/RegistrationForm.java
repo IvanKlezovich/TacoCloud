@@ -1,8 +1,8 @@
-package com.learn.TacoCloud.Forms;
+package com.learn.tacocloud.forms;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.learn.TacoCloud.Models.Users;
+import com.learn.tacocloud.models.Users;
 
 import lombok.Data;
 

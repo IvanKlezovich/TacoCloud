@@ -1,5 +1,7 @@
-package com.learn.TacoCloud.Models;
+package com.learn.tacocloud.models;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +20,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Taco {
+public class Taco implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1; 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

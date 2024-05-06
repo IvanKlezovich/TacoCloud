@@ -1,4 +1,4 @@
-package com.learn.TacoCloud.Controllers;
+package com.learn.tacocloud.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
-import com.learn.TacoCloud.Models.Ingredient;
-import com.learn.TacoCloud.Models.Ingredient.Type;
-import com.learn.TacoCloud.Repositories.IngredientRepository;
-import com.learn.TacoCloud.Models.Taco;
-import com.learn.TacoCloud.Models.TacoOrder;
+import com.learn.tacocloud.models.Ingredient;
+import com.learn.tacocloud.models.Taco;
+import com.learn.tacocloud.models.TacoOrder;
+import com.learn.tacocloud.models.Ingredient.Type;
+import com.learn.tacocloud.repositories.IngredientRepository;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -74,19 +75,25 @@ public class DesignTacoController {
 
     @PostMapping()
     public String processTaco( @Valid Taco taco, 
-        Errors errors, @ModelAttribute TacoOrder tacoOrder) {
+        Errors errors, @ModelAttribute TacoOrder tacoOrder,
+        SessionStatus sessionStatus) {
         if(errors.hasErrors()){
             errors.toString();
             return "home";
         }
         tacoOrder.addTaco(taco);
+
+        sessionStatus.setComplete();
+
         log.info("Processing taco: {}", taco);
+        
         return "redirect:/orders/current";
     }
 
     private Iterable<Ingredient> filterByType(
             Iterable<Ingredient> ingredients, Type type) { 
-        List<Ingredient> forStream = new ArrayList<>((List)ingredients);
+        List<Ingredient> forStream = new ArrayList<>();
+        ingredients.forEach(forStream::add);
         return forStream
                 .stream()
                 .filter(x -> x.getType().equals(type))

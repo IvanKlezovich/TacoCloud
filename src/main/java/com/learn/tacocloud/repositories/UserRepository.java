@@ -1,7 +1,8 @@
-package com.learn.TacoCloud.Repositories;
+package com.learn.tacocloud.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import com.learn.TacoCloud.Models.Users;
+
+import com.learn.tacocloud.models.Users;
 
 public interface UserRepository extends CrudRepository<Users, Long>{
 

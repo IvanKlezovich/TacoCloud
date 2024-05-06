@@ -1,4 +1,4 @@
-package com.learn.TacoCloud.Controllers;
+package com.learn.tacocloud.controllers;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.learn.TacoCloud.Forms.RegistrationForm;
-import com.learn.TacoCloud.Repositories.UserRepository;
+import com.learn.tacocloud.forms.RegistrationForm;
+import com.learn.tacocloud.repositories.UserRepository;
 
 
 

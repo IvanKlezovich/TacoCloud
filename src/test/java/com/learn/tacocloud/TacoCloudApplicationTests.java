@@ -1,4 +1,4 @@
-package com.learn.TacoCloud;
+package com.learn.tacocloud;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

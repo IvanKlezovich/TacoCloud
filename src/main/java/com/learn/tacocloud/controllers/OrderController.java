@@ -1,8 +1,8 @@
-package com.learn.TacoCloud.Controllers;
+package com.learn.tacocloud.controllers;
 
-import com.learn.TacoCloud.Models.TacoOrder;
-import com.learn.TacoCloud.Models.Users;
-import com.learn.TacoCloud.Repositories.OrderRepository;
+import com.learn.tacocloud.models.TacoOrder;
+import com.learn.tacocloud.models.Users;
+import com.learn.tacocloud.repositories.OrderRepository;
 
 import jakarta.validation.Valid;
 

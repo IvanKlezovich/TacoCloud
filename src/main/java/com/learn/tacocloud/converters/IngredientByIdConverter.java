@@ -1,10 +1,10 @@
-package com.learn.TacoCloud.Converters;
+package com.learn.tacocloud.converters;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.learn.TacoCloud.Models.Ingredient;
-import com.learn.TacoCloud.Repositories.IngredientRepository;
+import com.learn.tacocloud.models.Ingredient;
+import com.learn.tacocloud.repositories.IngredientRepository;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient>{

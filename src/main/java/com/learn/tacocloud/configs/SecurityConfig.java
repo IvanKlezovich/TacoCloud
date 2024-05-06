@@ -1,4 +1,4 @@
-package com.learn.TacoCloud.Configs;
+package com.learn.tacocloud.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.learn.TacoCloud.Models.Users;
-import com.learn.TacoCloud.Repositories.UserRepository;
+import com.learn.tacocloud.models.Users;
+import com.learn.tacocloud.repositories.UserRepository;
 
 @Configuration
 @EnableWebSecurity
